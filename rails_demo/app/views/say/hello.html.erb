@@ -1,0 +1,15 @@
+<h1>Hello from rails!</h1>
+<p>
+    It is now <%= @time %>
+</p>
+<% if false %>
+    2 + 2 = <%= 2 + 2%> 
+<p>
+    Say <a href="/say/goodbye">Good Bye!</a>
+</p>
+<% end %>
+<%= say_goodbye_path %>
+<br/>
+Say <%= link_to "Good bye!", say_goodbye_path %>
+
+
