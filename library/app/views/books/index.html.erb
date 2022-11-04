@@ -1,0 +1,44 @@
+<% if notice %>
+  <div class="alert alert-warning" role="alert">
+    <p id="notice"><%= notice %></p>
+  </div>
+<% end %>
+
+<div class="card">
+  <div class="card-body">
+    <h2 class="card-title">Lista de Libros</h2>
+    <div class="card-text">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Categoría</th>
+            <th>Año</th>
+            <th class="text-center">Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @books.each do |book| %>
+            <tr>
+              <td><%= book.title %></td>
+              <td><%= book.category %></td>
+              <td><%= book.year %></td>
+              <td class="text-center">
+                  <%= link_to 'Mostrar', book %> | 
+                  <%= link_to 'Editar', edit_book_path(book) %> | 
+                  <%= link_to 'Eliminar', book, method: :delete, data: { confirm: '¿Está seguro de eliminar este libro?' } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<% if user_signed_in? %>
+  <%= link_to 'Agregar un nuevo Libro', new_book_path %>
+<% end %>

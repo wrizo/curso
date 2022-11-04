@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><h4>Librería</h4></a>
+        <% if user_signed_in? %>
+            <ul class="navbar-nav flex-row">
+                <li class="nav-item me-3 me-lg-1">
+                    <a class="nav-link d-sm-flex align-items-sm-center text-warning" href="#">
+                        <strong class="d-none d-sm-block ms-1"><%= current_user.email %></strong>
+                    </a>
+                </li>
+                <li class="nav-item me-3 me-lg-1">
+                    <a class="nav-link d-sm-flex align-items-sm-center text-warning" data-confirm="¿Está seguro de cerrar la sesión?" data-method="delete" href="/users/sign_out">
+                        <strong class="d-none d-sm-block ms-1">Cerrar sesión</strong>
+                    </a>
+                </li>
+            </ul>
+        <% else %>
+            <ul class="navbar-nav flex-row">
+                <li class="nav-item me-3 me-lg-1">
+                    <a class="nav-link d-sm-flex align-items-sm-center text-warning" href="<%= new_user_session_path %>">
+                        <strong class="d-none d-sm-block ms-1">Iniciar Sesión</strong>
+                    </a>
+                </li>
+            </ul>
+        <% end %>
+    </div>
+</nav>

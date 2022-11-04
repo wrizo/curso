@@ -1,0 +1,38 @@
+<% if notice %>
+  <div class="alert alert-warning" role="alert">
+    <p id="notice"><%= notice %></p>
+  </div>
+<% end %>
+
+<div class="card" style="width: 50%;">
+  <h2 class="card-title">Mostrando Libro</h2>
+  <div class="card-body">
+    <div class="row mb-3">
+      <div class="col-md-4">
+        <strong>Título:</strong>
+      </div>
+      <div class="col-md-8">
+        <%= @book.title %>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-md-4">
+        <strong>Categoría:</strong>
+      </div>
+      <div class="col-md-8">
+        <%= @book.category %>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-md-4">
+        <strong>Año:</strong>
+      </div>
+      <div class="col-md-8">
+        <%= @book.year %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Editar', edit_book_path(@book) %> |
+<%= link_to 'Atrás', books_path %>
